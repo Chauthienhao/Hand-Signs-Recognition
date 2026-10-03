@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+logs/
+captures/
+recordings/
+reports/
+models/*.task
+config/settings.json

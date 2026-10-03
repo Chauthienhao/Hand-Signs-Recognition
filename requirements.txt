@@ -1,0 +1,34 @@
+# =============================================================================
+# Hand Signs Recognition System - requirements.txt
+# -----------------------------------------------------------------------------
+# Khoảng phiên bản dưới đây ĐÃ ĐƯỢC KIỂM THỬ (xem README > Bảng tương thích):
+#   - Cận dưới: kiểm thử bằng cách cài đúng phiên bản thấp nhất (Python 3.10).
+#   - Cận trên: chặn ở phiên bản major kế tiếp chưa được kiểm thử.
+# Python được hỗ trợ: 3.10 - 3.14 (64-bit). Khuyến nghị: 3.11 hoặc 3.12.
+# Muốn tái tạo đúng môi trường đã kiểm thử: pip install -r requirements-lock.txt
+# =============================================================================
+
+# Dùng opencv-contrib-python (KHÔNG dùng opencv-python): MediaPipe phụ thuộc gói
+# này; cài cả hai sẽ ghi đè thư mục cv2 của nhau. OpenCV 5.x chưa đưa vào kiểm thử.
+opencv-contrib-python>=4.8,<5
+
+# Python 3.13+ chỉ có wheel từ mediapipe 0.10.30 trở lên (pip tự chọn bản phù hợp).
+mediapipe>=0.10.14,<1.1
+mediapipe>=0.10.30,<1.1; python_version >= "3.13"
+
+numpy>=1.24,<3
+pandas>=2.0,<4
+scikit-learn>=1.3,<2
+# Matplotlib < 3.10 không nhúng được biểu đồ vào Tkinter khi dùng Tcl/Tk 9.
+matplotlib>=3.10,<4
+customtkinter>=5.2,<7
+joblib>=1.3,<2
+
+# Pillow 10.0 lỗi hiển thị ảnh với Tcl/Tk 9 ("Failed to load Tcl_SetVar"); 10.1+ OK.
+pillow>=10.1,<13
+
+# Đọc thành tiếng cho chế độ Đánh vần (tùy chọn - thiếu thì chương trình vẫn chạy):
+#   pyttsx3: offline, dùng giọng đọc của Windows (cần cài giọng tiếng Việt để đọc tiếng Việt)
+#   gTTS   : online, đọc tiếng Việt tốt, cần Internet
+pyttsx3>=2.90,<3
+gTTS>=2.3,<3
